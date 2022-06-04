@@ -1,0 +1,25 @@
+﻿@model YouTube.Models.User
+{
+    ViewBag.Title = "Videos";
+}
+
+<h2>Videos</h2>
+
+
+@foreach (var item in Model.Posts)
+{
+    <div class="col-sm-4 col-md-4 col-xs-12">
+        <div class="title">@item.PostTitle</div>
+        <div class="video-frame">
+            <video style="width:100%; height:auto;" controls>
+                <source type="video/mp4" src="@Url.Content(@item.PostPath)">
+            </video>
+        </div>
+    </div>
+}
+
+
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model. }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>
